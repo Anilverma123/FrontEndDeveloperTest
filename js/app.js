@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
   $("#btn-search").on("click", function (e) {
+    console.log('click')
     e.preventDefault();
     localStorage.clear(); //Clears storage for next request
     email = $('input[type="text"]').val().toLowerCase();
@@ -9,6 +10,9 @@ $(document).ready(function () {
     regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (email.match(regEx)) {
       x = true;
+      jQuery(".above-the-fold").prepend('<div id="preloader"><h4>Please wait a moment...</h4></div>');
+     
+      console.log( x = true)
     } else {
       x = false;
     }
@@ -19,9 +23,12 @@ $(document).ready(function () {
       const url =
         'https://ltv-data-api.herokuapp.com/api/v1/records.json?email=' + email;
       fetch(proxyurl + url)
+      
         .then((response) => response.text())
         .then(function (contents) {
+         
           localStorage.setItem("userObject", contents);
+         
           window.location.href = "result.html";
         })
         .catch((e) => console.log(e));

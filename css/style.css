@@ -115,6 +115,10 @@ section {
   width: 180px;
   margin-left: 20px;
 }
+.btn-form-submit:hover{
+  background-image: linear-gradient(225deg, #f9d957 0%, #f9d957 100%);
+  box-shadow: 0 3px 0 0 #ab943c, inset 0 1px 0 0 #FFFFFF;
+}
 
 .input-group > .form-control {
   height: 70px;
@@ -132,7 +136,7 @@ section {
 .error-msg {
   display: none;
 }
-
+.input-group{z-index: 1;}
 .input-group.error .error-msg {
   display: block;
   position: absolute;
@@ -173,6 +177,9 @@ section {
   }
   .btn-form-submit {
     margin: 12px 0 0 0;
+  }
+  .input-group.error .error-msg{
+    bottom:30px;
   }
 }
 
@@ -261,7 +268,11 @@ section {
   }
   .list-item {
     margin-bottom: 16px;
+    display:flex !important;
   }
+  .list-item:nth-child(2){order:4; }
+  .list-item:nth-child(4){order:5; }
+  .list-item:nth-child(6){order:6;}
   .list-circle {
     width: 50.4px;
     height: 50.4px;
@@ -385,4 +396,36 @@ section {
 .footer a:first-of-type:after {
   content: '|';
   padding-left: 5px;
+}
+
+/* ************************************************************
+***************************************************************
+--- Add Loader  ---
+***************************************************************
+************************************************************ */
+
+#preloader { 
+  background: url(../img/loader.gif) center center no-repeat #fff ;  
+  height: 100%; 
+  width: 100%; 
+  position: fixed; 
+  z-index: 2;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+}
+#preloader h4 {
+  font-weight: bold;
+  color: #004A80; 
+  font-size: 22px; 
+  text-align: center; 
+  height: 100%; 
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+  margin-top: 180px;
+
+}
+.btn:not(:disabled):not(.disabled).active, .btn:not(:disabled):not(.disabled):active{
+  background: #ffb91b;
 }
